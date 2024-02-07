@@ -14,6 +14,35 @@ public class StudentManager {
         students = new Student[0];
     }
 
+	///File reader and formatter 
+	public boolean readFromFile(String fileName)
+    {
+    	try
+		{
+			Scanner fileIn = new Scanner(new FileInputStream(fileName));
+				while(fileIn.hasNext())
+				{
+					////Variable Declaration
+					int id = fileIn.nextInt();
+					String name = fileIn.next()+" "+fileIn.next();
+					double grade = fileIn.nextDouble();
+					int organize = id;
+					
+					///Adding objects to list
+					Student student= new Student(id,name,grade);
+					addStudent(student);
+				}
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+			System.out.println("Error: Data not found");
+			return false;
+		}
+    	return true;
+    }
+	
+
     // Method to display details of all students
     public void displayStudents() {
         if (students.length == 0) {
