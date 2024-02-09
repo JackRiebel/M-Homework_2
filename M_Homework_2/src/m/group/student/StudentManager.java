@@ -53,6 +53,17 @@ public class StudentManager {
             }
         }
     }
+    
+    //Method to search students by id
+    public Student searchStudentById (int id) {
+    	for (Student student : students) {
+    		if (student.getId() == id) {
+    			return student;
+    		}
+    	}
+    	// Student not found
+    	return null;
+    }
 
     // Helper method to add a student to the array
     private void addStudent(Student student) {
