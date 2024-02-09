@@ -55,16 +55,18 @@ public class StudentManager {
     }
     
     //Method to search students by id
-    public Student searchStudentById (int id) {
+    public boolean searchStudentById(int id) {
     	for (Student student : students) {
     		if (student.getId() == id) {
-    			return student;
+    			System.out.println("Student with ID " + id + " found!");
+    			System.out.println(student.toString());
+    			return true;
     		}
     	}
-    	// Student not found
-    	return null;
+    	System.out.println("Student with ID " + id + " not found!");
+    	return false;
     }
-
+    
     // Helper method to add a student to the array
     private void addStudent(Student student) {
         Student[] newArray = new Student[students.length + 1];
