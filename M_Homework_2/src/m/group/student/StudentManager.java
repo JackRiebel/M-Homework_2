@@ -39,7 +39,7 @@ public class StudentManager {
     }
 
 	   //Method to update grade by id
-    public boolean updateStudentByID(int id, double grade){
+    public boolean updateStudentGradeByID(int id, double grade){
     	for (Student student : students) {
     		if (student.getId() == id) {
     			double oldGrade = student.getGrade();
