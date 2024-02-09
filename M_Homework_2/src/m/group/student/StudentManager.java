@@ -15,13 +15,10 @@ public class StudentManager {
     }
 
 	///File reader and formatter 
-	public boolean readFromFile(String fileName)
-    {
-    	try
-		{
+	public boolean readFromFile(String fileName){
+    	try{
 			Scanner fileIn = new Scanner(new FileInputStream(fileName));
-				while(fileIn.hasNext())
-				{
+				while(fileIn.hasNext()){
 					////Variable Declaration
 					int id = fileIn.nextInt();
 					String name = fileIn.next()+" "+fileIn.next();
@@ -33,14 +30,28 @@ public class StudentManager {
 					addStudent(student);
 				}
 		}
-		catch (FileNotFoundException e)
-		{
+	catch (FileNotFoundException e){
 			e.printStackTrace();
 			System.out.println("Error: Data not found");
 			return false;
 		}
     	return true;
     }
+
+	   //Method to update grade by id
+    public boolean updateStudentByID(int id, double grade){
+    	for (Student student : students) {
+    		if (student.getId() == id) {
+    			double oldGrade = student.getGrade();
+    			student.setGrade(grade);
+    			System.out.println("Grade for student with ID " + id +" has been updated from " + oldGrade + " to " + grade);
+    			return true;
+    		}
+    }
+    	System.out.println("Student with ID " + id + " not found!");
+    	return false;
+    }
+    
 	
 
     // Method to display details of all students
