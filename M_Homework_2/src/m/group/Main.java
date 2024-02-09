@@ -16,7 +16,7 @@ public class Main {
 		studentManager.displayStudents();
 		        
 		// Search for a student by ID.
-		boolean studentFound = studentManager.searchStudentById(101);
+		boolean searchStatus = studentManager.searchStudentById(102);
 		        
 		// Update the grade of a student by ID.
 		boolean studentGradeUpdateStatus = studentManager.updateStudentGradeById(102, 95);
